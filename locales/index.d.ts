@@ -763,6 +763,10 @@ export interface Locale extends ILocale {
      */
     "renoted": string;
     /**
+     * {name} にリノートしました。
+     */
+    "renotedToX": ParameterizedString<"name">;
+    /**
      * ノートを引用しました。
      */
     "quoted": string;
@@ -790,6 +794,14 @@ export interface Locale extends ILocale {
      * チャンネル内引用
      */
     "inChannelQuote": string;
+    /**
+     * チャンネルにリノート
+     */
+    "renoteToChannel": string;
+    /**
+     * 他のチャンネルにリノート
+     */
+    "renoteToOtherChannel": string;
     /**
      * ピン留めされたノート
      */
@@ -1231,7 +1243,7 @@ export interface Locale extends ILocale {
      */
     "silencedInstances": string;
     /**
-     * サイレンスしたいサーバーのホストを改行で区切って設定します。サイレンスされたサーバーに所属するアカウントはすべて「サイレンス」として扱われ、フォローがすべてリクエストになり、フォロワーでないローカルアカウントにはメンションできなくなります。ブロックしたインスタンスには影響しません。
+     * サイレンスしたいサーバーのホストを改行で区切って設定します。サイレンスされたサーバーに所属するアカウントはすべて「サイレンス」として扱われ、フォローがすべてリクエストになります。ブロックしたインスタンスには影響しません。
      */
     "silencedInstancesDescription": string;
     /**
@@ -1598,6 +1610,10 @@ export interface Locale extends ILocale {
      * フォルダーを選択
      */
     "selectFolders": string;
+    /**
+     * ファイルが選択されていません
+     */
+    "fileNotSelected": string;
     /**
      * ファイル名を変更
      */
@@ -2254,6 +2270,10 @@ export interface Locale extends ILocale {
      * 引用として添付しますか？
      */
     "quoteQuestion": string;
+    /**
+     * クリップボードのテキストが長いです。テキストファイルとして添付しますか？
+     */
+    "attachAsFileQuestion": string;
     /**
      * まだチャットはありません
      */
@@ -4524,9 +4544,13 @@ export interface Locale extends ILocale {
      */
     "thisPostMayBeAnnoyingIgnore": string;
     /**
-     * 見たことのあるリノートを省略して表示
+     * リノートのスマート省略
      */
     "collapseRenotes": string;
+    /**
+     * リアクションやリノートをしたことがあるノートをたたんで表示します。
+     */
+    "collapseRenotesDescription": string;
     /**
      * 特定のMFM構文を含むノートを省略して表示
      */
@@ -5392,6 +5416,26 @@ export interface Locale extends ILocale {
      */
     "useNativeUIForVideoAudioPlayer": string;
     /**
+     * オリジナルのファイル名を保持
+     */
+    "keepOriginalFilename": string;
+    /**
+     * この設定をオフにすると、アップロード時にファイル名が自動でランダム文字列に置き換えられます。
+     */
+    "keepOriginalFilenameDescription": string;
+    /**
+     * 説明文はありません
+     */
+    "noDescription": string;
+    /**
+     * フォローの際常に確認する
+     */
+    "alwaysConfirmFollow": string;
+    /**
+     * お問い合わせ
+     */
+    "inquiry": string;
+    /**
      * 未読の通知の数を表示する
      */
     "showUnreadNotificationsCount": string;
@@ -5470,6 +5514,38 @@ export interface Locale extends ILocale {
          * ダイレクトメッセージ
          */
         "direct": string;
+    };
+    "_delivery": {
+        /**
+         * 配信状態
+         */
+        "status": string;
+        /**
+         * 配信停止
+         */
+        "stop": string;
+        /**
+         * 配信再開
+         */
+        "resume": string;
+        "_type": {
+            /**
+             * 配信中
+             */
+            "none": string;
+            /**
+             * 手動停止中
+             */
+            "manuallySuspended": string;
+            /**
+             * サーバー削除のため停止中
+             */
+            "goneSuspended": string;
+            /**
+             * サーバー応答なしのため停止中
+             */
+            "autoSuspendedForNotResponding": string;
+        };
     };
     "_bubbleGame": {
         /**
@@ -7437,6 +7513,26 @@ export interface Locale extends ILocale {
              */
             "isRemote": string;
             /**
+             * 猫ユーザー
+             */
+            "isCat": string;
+            /**
+             * botユーザー
+             */
+            "isBot": string;
+            /**
+             * サスペンド済みユーザー
+             */
+            "isSuspended": string;
+            /**
+             * 鍵アカウントユーザー
+             */
+            "isLocked": string;
+            /**
+             * 「アカウントを見つけやすくする」が有効なユーザー
+             */
+            "isExplorable": string;
+            /**
              * アカウント作成から～以内
              */
             "createdLessThan": string;
@@ -8875,6 +8971,10 @@ export interface Locale extends ILocale {
          * バックアップコードが全て使用されました。認証アプリを利用できない場合、これ以上アカウントにアクセスできなくなります。認証アプリを再登録してください。
          */
         "backupCodesExhaustedWarning": string;
+        /**
+         * 詳細なガイドはこちら
+         */
+        "moreDetailedGuideHere": string;
     };
     "_permissions": {
         /**
@@ -9073,10 +9173,6 @@ export interface Locale extends ILocale {
          * ユーザーのプライベートな情報を見る
          */
         "read:admin:show-user": string;
-        /**
-         * ユーザーのプライベートな情報を見る
-         */
-        "read:admin:show-users": string;
         /**
          * ユーザーを凍結する
          */
@@ -10301,6 +10397,10 @@ export interface Locale extends ILocale {
          * カラムを追加
          */
         "addColumn": string;
+        /**
+         * 新着ノート通知の設定
+         */
+        "newNoteNotificationSettings": string;
         /**
          * カラムの設定
          */
